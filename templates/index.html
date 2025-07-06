@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>وضعیت آب و هوا</title>
+</head>
+<body>
+    <h1>پیش‌بینی آب و هوا</h1>
+    <form method="POST">
+        <input type="text" name="city" placeholder="نام شهر را وارد کنید" required>
+        <button type="submit">جستجو</button>
+    </form>
+
+    {% if weather %}
+        <h2>شهر: {{ weather.city }}</h2>
+        <p>دما: {{ weather.temperature }}°C</p>
+        <p>وضعیت: {{ weather.description }}</p>
+    {% elif error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
